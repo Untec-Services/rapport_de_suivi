@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports d'activité - Data-Collect & MeTod</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        
+        .stat-card .label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .reports-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .section-header h2 {
+            font-size: 20px;
+            color: #343a40;
+            margin-bottom: 3px;
+        }
+        
+        .section-header p {
+            color: #6c757d;
+            font-size: 13px;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        .report-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .report-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .report-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .report-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 8px;
+        }
+        
+        .report-date {
+            font-size: 13px;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .report-stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        
+        .report-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            opacity: 0.9;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 900px) {
+            .reports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Rapports d'activité</h1>
+            <p>Data-Collect & MeTod | Suivi hebdomadaire</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number">1</div>
+                <div class="label">Rapports</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">8</div>
+                <div class="label">Activités</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2</div>
+                <div class="label">Projets</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2</div>
+                <div class="label">Membres</div>
+            </div>
+        </div>
+        
+        <div class="reports-section">
+            <div class="section-header">
+                <h2>Historique des rapports</h2>
+                <p>Cliquez sur une semaine pour consulter le rapport</p>
+            </div>
+            
+            <div class="reports-grid">
+                <!-- Rapport Semaine du 13 octobre -->
+                <div class="report-card" onclick="window.location.href='semaine-13-oct-2025.html'">
+                    <div class="report-icon">📅</div>
+                    <div class="report-title">Semaine 13 oct.</div>
+                    <div class="report-date">13 - 20 oct.</div>
+                    <div class="report-stats">
+                        <div class="report-stat">
+                            <span>DC:</span>
+                            <strong>4</strong>
+                        </div>
+                        <div class="report-stat">
+                            <span>MT:</span>
+                            <strong>4</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cartes vides pour les futurs rapports -->
+                <div class="report-card" style="opacity: 0.4; cursor: not-allowed;" title="Rapport à venir">
+                    <div class="report-icon">📅</div>
+                    <div class="report-title">Semaine 06 oct.</div>
+                    <div class="report-date">06 - 13 oct.</div>
+                </div>
+                
+                <div class="report-card" style="opacity: 0.4; cursor: not-allowed;" title="Rapport à venir">
+                    <div class="report-icon">📅</div>
+                    <div class="report-title">Semaine 29 sept.</div>
+                    <div class="report-date">29 sept. - 06 oct.</div>
+                </div>
+                
+                <!-- Tu peux ajouter plus de cartes ici -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Data-Collect & MeTod | Dassoah & Savio</p>
+        </div>
+    </div>
+</body>
+</html>
