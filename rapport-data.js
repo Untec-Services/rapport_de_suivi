@@ -189,7 +189,7 @@ const activities = [
         id: "savio-2-7",
         projet: "etude_opcc",
         projetNom: "Études OPCC",
-        sujet: "Les études de l'OPCC (Étude N° USH)",
+        sujet: "Les études de l'OPCC (Étude N°1 USH)",
         objectif: "Suivi de la finalisation de l'étude 1 de l'USH avec le groupement de prestataires. Organisation des points de suivi pour définir les prochaines étapes en vue de finaliser cette étude.",
         statut: "a-faire",
         statutNom: "À faire",
