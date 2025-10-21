@@ -22,7 +22,7 @@ const activities = [
         projet: "estima",
         projetNom: "Estima",
         sujet: "-",
-        objectif: "Rendez-vous avec Vizcab pour présenter la version finale de l'API qui renvoie le prix exact",
+        objectif: "Rendez-vous avec Vizcab pour présenter la version finale de l'API passerelle permettant la communication entre Untec Services et Vizcab) qui renvoie le prix exact",
         statut: "termine",
         statutNom: "Terminé",
         prochaine: "-",
@@ -45,7 +45,7 @@ const activities = [
         priorite: "medium",
         prioriteNom: "Moyenne",
         rag: "amber",
-        equipe: ["Dassoah"]
+        equipe: ["Dassoah", "Savio"]
     },
     {
         id: "estima-1-4",
@@ -122,6 +122,49 @@ const activities = [
         rag: "blue",
         equipe: ["Dassoah"]
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // Savio
     {
         id: "savio-1-1",
         projet: "datacollect",
