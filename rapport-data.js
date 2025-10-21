@@ -1,5 +1,7 @@
 // rapport-data.js
 const activities = [
+
+    // Dassoah 
     {
         id: "estima-1-1",
         projet: "estima",
@@ -8,12 +10,12 @@ const activities = [
         objectif: "Echange de données entre Vizcab et Untec Services afin de renvoyer le prix estimé des prestations basés sur la méthode Untec.",
         statut: "termine",
         statutNom: "Terminé",
-        prochaine: "Attente du retour finale de Vizcab",
+        prochaine: "-",
         echeance: "20/10/2025",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "green",
-        equipe: ["Dassoah"]
+        equipe: ["Dassoah", "Savio"]
     },
     {
         id: "estima-1-2",
@@ -23,7 +25,7 @@ const activities = [
         objectif: "Rendez-vous avec Vizcab pour présenter la version finale de l'API qui renvoie le prix exact",
         statut: "termine",
         statutNom: "Terminé",
-        prochaine: "Suivi des retours Vizcab",
+        prochaine: "-",
         echeance: "20/10/2025",
         priorite: "high",
         prioriteNom: "Haute",
@@ -40,8 +42,8 @@ const activities = [
         statutNom: "À faire",
         prochaine: "Rédiger et envoyer la documentation complète",
         echeance: "24/10/2025",
-        priorite: "high",
-        prioriteNom: "Haute",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
         rag: "amber",
         equipe: ["Dassoah"]
     },
@@ -64,7 +66,7 @@ const activities = [
         id: "estima-1-5",
         projet: "estima",
         projetNom: "Estima",
-        sujet: "Version Estima 2.0",
+        sujet: "-",
         objectif: "Mise en production",
         statut: "a-venir",
         statutNom: "À venir",

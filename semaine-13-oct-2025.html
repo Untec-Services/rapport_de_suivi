@@ -147,15 +147,23 @@
         background: #007bff;
       }
 
-      /* Nouveaux styles pour les filtres */
+      /* Styles pour les filtres */
       .filters {
         padding: 15px 30px;
         background: #ffffff;
         border-bottom: 1px solid #e9ecef;
+      }
+
+      .filter-group {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
         align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .filter-group:last-child {
+        margin-bottom: 0;
       }
 
       .filters-label {
@@ -163,6 +171,7 @@
         color: #495057;
         margin-right: 10px;
         font-size: 13px;
+        min-width: 140px;
       }
 
       .filter-btn {
@@ -187,6 +196,16 @@
         background: #667eea;
         color: white;
         border-color: #667eea;
+      }
+
+      .filter-btn.active.project-estima {
+        background: #1976d2;
+        border-color: #1976d2;
+      }
+
+      .filter-btn.active.project-datacollect {
+        background: #7b1fa2;
+        border-color: #7b1fa2;
       }
 
       table {
@@ -495,16 +514,43 @@
 
       @media print {
         .action-buttons {
-          display: none;
+          display: none !important;
         }
         .filters {
-          display: none;
+          display: none !important;
+        }
+        .user-selector {
+          display: none !important;
+        }
+        .add-comment-btn {
+          display: none !important;
+        }
+        .comment-input-section {
+          display: none !important;
+        }
+        .comment-action-btn {
+          display: none !important;
         }
         body {
           padding: 0;
+          background: white;
         }
-        .add-comment-btn {
-          display: none;
+        .container {
+          box-shadow: none;
+        }
+        .header {
+          padding: 20px 30px;
+        }
+        .header-left {
+          width: 100%;
+          text-align: center;
+        }
+        .header-right {
+          display: none !important;
+        }
+        .week-badge {
+          display: inline-block;
+          margin-top: 10px;
         }
       }
 
@@ -560,14 +606,22 @@
         </div>
       </div>
 
-      <!-- Section des filtres ajoutée -->
+      <!-- Section des filtres modifiée -->
       <div class="filters">
-        <span class="filters-label">Filtrer par statut :</span>
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="termine">Terminé</button>
-        <button class="filter-btn" data-filter="a-faire">À faire</button>
-        <button class="filter-btn" data-filter="planifie">Planifié</button>
-        <button class="filter-btn" data-filter="a-venir">À venir</button>
+        <div class="filter-group">
+          <span class="filters-label">Filtrer par projet :</span>
+          <button class="filter-btn active" data-filter-type="projet" data-filter="all">Tous les projets</button>
+          <button class="filter-btn project-estima" data-filter-type="projet" data-filter="estima">Estima</button>
+          <button class="filter-btn project-datacollect" data-filter-type="projet" data-filter="datacollect">Data-Collect</button>
+        </div>
+        <div class="filter-group">
+          <span class="filters-label">Filtrer par statut :</span>
+          <button class="filter-btn active" data-filter-type="statut" data-filter="all">Tous les statuts</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="termine">Terminé</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="a-faire">À faire</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="planifie">Planifié</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="a-venir">À venir</button>
+        </div>
       </div>
 
       <div class="loading" id="loading">Chargement des données...</div>
@@ -619,6 +673,12 @@
 
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
+
+      // État des filtres
+      let currentFilters = {
+        projet: 'all',
+        statut: 'all'
+      };
 
       // Fonction pour charger les commentaires
       function loadComments(activityId, commentsDiv) {
@@ -751,7 +811,8 @@
 
         activities.forEach((activity) => {
           const row = document.createElement("tr");
-          row.dataset.statut = activity.statut; // Ajout du data-statut pour le filtrage
+          row.dataset.statut = activity.statut;
+          row.dataset.projet = activity.projet;
 
           // Créer la section commentaires
           const commentsSection = document.createElement("div");
@@ -825,19 +886,18 @@
         document.getElementById("activities-table").style.display = "table";
       }
 
-      // Fonction pour filtrer les lignes du tableau
-      function filterActivities(filter) {
+      // Fonction pour filtrer les activités avec les deux critères
+      function filterActivities() {
         const rows = document.querySelectorAll("#activities-tbody tr");
 
         rows.forEach((row) => {
-          if (filter === "all") {
+          const projetMatch = currentFilters.projet === 'all' || row.dataset.projet === currentFilters.projet;
+          const statutMatch = currentFilters.statut === 'all' || row.dataset.statut === currentFilters.statut;
+
+          if (projetMatch && statutMatch) {
             row.classList.remove("hidden");
           } else {
-            if (row.dataset.statut === filter) {
-              row.classList.remove("hidden");
-            } else {
-              row.classList.add("hidden");
-            }
+            row.classList.add("hidden");
           }
         });
       }
@@ -845,16 +905,22 @@
       // Gestion des clics sur les boutons de filtre
       document.querySelectorAll(".filter-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
-          // Retirer la classe active de tous les boutons
-          document
-            .querySelectorAll(".filter-btn")
-            .forEach((b) => b.classList.remove("active"));
+          const filterType = this.dataset.filterType;
+          const filterValue = this.dataset.filter;
+
+          // Retirer la classe active uniquement des boutons du même type
+          document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`).forEach((b) => {
+            b.classList.remove("active");
+          });
 
           // Ajouter la classe active au bouton cliqué
           this.classList.add("active");
 
-          // Filtrer les activités
-          filterActivities(this.dataset.filter);
+          // Mettre à jour le filtre correspondant
+          currentFilters[filterType] = filterValue;
+
+          // Appliquer les filtres
+          filterActivities();
         });
       });
 
@@ -864,15 +930,122 @@
       // Fonction PDF
       window.downloadPDF = function () {
         const element = document.getElementById("report-content");
+        
+        // Éléments à cacher temporairement
+        const elementsToHide = [
+          document.querySelector('.user-selector'),
+          document.querySelector('.action-buttons'),
+          document.querySelector('.filters'),
+          ...document.querySelectorAll('.comment-input-section'),
+          ...document.querySelectorAll('.comment-action-btn')
+        ];
+        
+        // Cacher les éléments
+        elementsToHide.forEach(el => {
+          if (el) el.style.display = 'none';
+        });
+        
+        // Ajuster le header pour le PDF
+        const header = document.querySelector('.header');
+        const headerRight = document.querySelector('.header-right');
+        const headerLeft = document.querySelector('.header-left');
+        const legend = document.querySelector('.legend');
+        const footer = document.querySelector('.footer');
+        const table = document.querySelector('table');
+        const allCells = document.querySelectorAll('td, th');
+        
+        const originalStyles = {
+          header: header.style.cssText,
+          headerRight: headerRight ? headerRight.style.cssText : '',
+          headerLeft: headerLeft ? headerLeft.style.cssText : '',
+          legend: legend ? legend.style.cssText : '',
+          footer: footer ? footer.style.cssText : '',
+          table: table ? table.style.cssText : '',
+          cells: Array.from(allCells).map(cell => cell.style.cssText)
+        };
+        
+        // Optimiser pour le PDF
+        header.style.padding = '15px 20px';
+        header.style.textAlign = 'center';
+        if (headerRight) headerRight.style.display = 'none';
+        if (headerLeft) {
+          headerLeft.style.textAlign = 'center';
+          headerLeft.style.width = '100%';
+        }
+        if (legend) {
+          legend.style.padding = '10px 20px';
+          legend.style.fontSize = '11px';
+        }
+        if (footer) {
+          footer.style.padding = '10px 20px';
+          footer.style.fontSize = '10px';
+        }
+        
+        // Optimiser le tableau
+        allCells.forEach(cell => {
+          cell.style.padding = '8px 6px';
+          cell.style.fontSize = '10px';
+          cell.style.lineHeight = '1.3';
+        });
+        
+        // Réduire la taille des éléments dans les cellules
+        document.querySelectorAll('.project-tag, .status-pill, .team-member').forEach(el => {
+          el.style.fontSize = '9px';
+          el.style.padding = '3px 8px';
+        });
+        
+        document.querySelectorAll('.rag').forEach(el => {
+          el.style.width = '18px';
+          el.style.height = '18px';
+        });
+        
+        document.querySelectorAll('.comment-item').forEach(el => {
+          el.style.fontSize = '10px';
+          el.style.padding = '6px 8px';
+          el.style.marginBottom = '4px';
+        });
+        
+        document.querySelectorAll('.comment-author, .comment-time').forEach(el => {
+          el.style.fontSize = '9px';
+        });
+        
         const opt = {
-          margin: 10,
+          margin: [8, 8, 8, 8],
           filename: "rapport-3-20-oct-2025.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: "mm", format: "a4", orientation: "landscape" },
+          image: { type: "jpeg", quality: 0.95 },
+          html2canvas: { 
+            scale: 1.5,
+            letterRendering: true,
+            useCORS: true
+          },
+          jsPDF: { 
+            unit: "mm", 
+            format: "a3", 
+            orientation: "landscape" 
+          },
         };
 
-        html2pdf().set(opt).from(element).save();
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Restaurer l'affichage après génération du PDF
+          elementsToHide.forEach(el => {
+            if (el) el.style.display = '';
+          });
+          
+          header.style.cssText = originalStyles.header;
+          if (headerRight) headerRight.style.cssText = originalStyles.headerRight;
+          if (headerLeft) headerLeft.style.cssText = originalStyles.headerLeft;
+          if (legend) legend.style.cssText = originalStyles.legend;
+          if (footer) footer.style.cssText = originalStyles.footer;
+          if (table) table.style.cssText = originalStyles.table;
+          
+          allCells.forEach((cell, index) => {
+            cell.style.cssText = originalStyles.cells[index];
+          });
+          
+          document.querySelectorAll('.project-tag, .status-pill, .team-member, .rag, .comment-item, .comment-author, .comment-time').forEach(el => {
+            el.style.cssText = '';
+          });
+        });
       };
     </script>
   </body>
