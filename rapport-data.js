@@ -76,7 +76,7 @@ const activities = [
         statut: "a-venir",
         statutNom: "À venir",
         prochaine: "- Point de planification <br>- Évaluation de la charge de travail<br> - Identification des ressources, techniques et humaines<br> - Élaboration du plan de travail",
-        echeance: "10/10/2025",
+        echeance: "10/02/2026",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "red",
