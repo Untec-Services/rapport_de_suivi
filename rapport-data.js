@@ -54,7 +54,7 @@ const activities = [
         id: "recap-1-4",
         projet: "estima",
         projetNom: "Estima",
-        sujet: "Prochaines étapes (rappel)",
+        sujet: "Plan de communication",
         objectif: "24 oct : finalisation technique. 15 nov : mise en production. En parallèle : plan de communication et collecte des e-mails",
         statut: "planifie",
         statutNom: "Planifié",
@@ -63,7 +63,7 @@ const activities = [
         priorite: "medium",
         prioriteNom: "Moyenne",
         rag: "blue",
-        equipe: ["Dassoah"]
+        equipe: ["Emma", "Sofian"]
     },
 
 
