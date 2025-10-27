@@ -203,6 +203,12 @@
         border-color: #1976d2;
       }
 
+      .filter-btn.active.project-gestiona {
+        background: #1976d2;
+        border-color: #1976d2;
+      }
+
+
       .filter-btn.active.project-datacollect {
         background: #7b1fa2;
         border-color: #7b1fa2;
@@ -260,9 +266,30 @@
         color: #1976d2;
       }
 
+      .project-tag.gestiona {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
       .project-tag.datacollect {
         background: #f3e5f5;
         color: #7b1fa2;
+      }
+
+      .project-tag.indicateur {
+        background: #1fd19c;
+        color: #f3f6f3;
+      }
+
+      .project-tag.observatoire {
+        background: #0786bd;
+        color: #f3f6f3;
+      }
+
+      
+      .project-tag.etude_opcc {
+        background: #0786bd;
+        color: #f3f6f3;
       }
 
       .status-pill {
@@ -566,7 +593,7 @@
       <div class="header">
         <div class="header-left">
           <h1>📊 Rapport d'avancement</h1>
-          <p>Estima & Data-Collect | 13 → 20 octobre 2025</p>
+          <p>MeTod & Observatoire | 13 → 20 octobre 2025</p>
         </div>
         <div class="header-right">
           <div class="user-selector">
@@ -612,9 +639,16 @@
           <span class="filters-label">Filtrer par projet :</span>
           <button class="filter-btn active" data-filter-type="projet" data-filter="all">Tous les projets</button>
           <button class="filter-btn project-estima" data-filter-type="projet" data-filter="estima">Estima</button>
+           <button class="filter-btn project-gestion" data-filter-type="projet" data-filter="gestiona">Gestiona</button>
           <button class="filter-btn project-datacollect" data-filter-type="projet" data-filter="datacollect">Data-Collect</button>
-        </div>
-        <div class="filter-group">
+           <button class="filter-btn project-indicateur" data-filter-type="projet" data-filter="indicateur">Indicateur des coûts</button>
+          <button class="filter-btn project-observatoire" data-filter-type="projet" data-filter="observatoire">GT-Observatoire</button>
+          <button class="filter-btn project-etude_opcc" data-filter-type="projet" data-filter="etude_opcc">Etudes OPCC</button>
+
+          </div>
+
+
+        <div class="filter-group"> 
           <span class="filters-label">Filtrer par statut :</span>
           <button class="filter-btn active" data-filter-type="statut" data-filter="all">Tous les statuts</button>
           <button class="filter-btn" data-filter-type="statut" data-filter="termine">Terminé</button>
@@ -645,7 +679,7 @@
       </table>
 
       <div class="footer">
-        Auteur : Dassoah Maixent OKOUMOU | Période : 13 → 20 octobre 2025
+        Auteur : Service Informatique Untec  | Période : 13 → 20 octobre 2025
       </div>
     </div>
     <script src="rapport-data.js"></script>
