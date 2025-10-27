@@ -1,554 +1,858 @@
-<!-- Semaine 20 octobre 2025 -->
+
+<!-- semaine-13-oct-2025.html -->
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport - Semaine du 20 octobre 2025</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapport - Semaine du 13 octobre 2025</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .header-left h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
+      .header-left h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
 
-        .header-left p {
-            opacity: 0.9;
-            font-size: 14px;
-        }
+      .header-left p {
+        opacity: 0.9;
+        font-size: 14px;
+      }
 
-        .header-right {
-            text-align: right;
-        }
+      .header-right {
+        text-align: right;
+      }
 
-        .user-selector {
-            margin-bottom: 15px;
-        }
+      .user-selector {
+        margin-bottom: 15px;
+      }
 
-        .user-selector label {
-            font-size: 13px;
-            margin-right: 8px;
-            opacity: 0.9;
-        }
+      .user-selector label {
+        font-size: 13px;
+        margin-right: 8px;
+        opacity: 0.9;
+      }
 
-        .user-selector select {
-            padding: 6px 12px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
+      .user-selector select {
+        padding: 6px 12px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        outline: none;
+      }
 
-        .user-selector select option {
-            color: #343a40;
-            background: white;
-        }
+      .user-selector select option {
+        color: #343a40;
+        background: white;
+      }
 
-        .week-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+      .week-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
 
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: 2px solid white;
+        background: transparent;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn:hover {
+        background: white;
+        color: #667eea;
+      }
+
+      .legend {
+        display: flex;
+        gap: 20px;
+        padding: 20px 30px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+        flex-wrap: wrap;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .status-badge {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .status-badge.green {
+        background: #28a745;
+      }
+      .status-badge.orange {
+        background: #fd7e14;
+      }
+      .status-badge.red {
+        background: #dc3545;
+      }
+      .status-badge.blue {
+        background: #007bff;
+      }
+
+      /* Styles pour les filtres */
+      .filters {
+        padding: 15px 30px;
+        background: #ffffff;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .filter-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .filter-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .filters-label {
+        font-weight: 600;
+        color: #495057;
+        margin-right: 10px;
+        font-size: 13px;
+        min-width: 140px;
+      }
+
+      .filter-btn {
+        padding: 8px 16px;
+        border: 2px solid #dee2e6;
+        background: white;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #495057;
+      }
+
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-color: #667eea;
+      }
+
+      .filter-btn.active {
+        background: #667eea;
+        color: white;
+        border-color: #667eea;
+      }
+
+      .filter-btn.active.project-estima {
+        background: #1976d2;
+        border-color: #1976d2;
+      }
+
+      .filter-btn.active.project-gestiona {
+        background: #1976d2;
+        border-color: #1976d2;
+      }
+
+
+      .filter-btn.active.project-datacollect {
+        background: #7b1fa2;
+        border-color: #7b1fa2;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        background: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+      }
+
+      th {
+        padding: 15px 12px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 13px;
+        color: #495057;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      td {
+        padding: 15px 12px;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 14px;
+        vertical-align: top;
+      }
+
+      tbody tr {
+        transition: background 0.2s ease;
+      }
+
+      tbody tr:hover {
+        background: #f8f9fa;
+      }
+
+      tbody tr.hidden {
+        display: none;
+      }
+
+      .project-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .project-tag.estima {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
+      .project-tag.gestiona {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
+      .project-tag.datacollect {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+
+      .project-tag.indicateur {
+        background: #1fd19c;
+        color: #f3f6f3;
+      }
+
+      .project-tag.observatoire {
+        background: #0786bd;
+        color: #f3f6f3;
+      }
+
+      
+      .project-tag.etude_opcc {
+        background: #0786bd;
+        color: #f3f6f3;
+      }
+
+      .status-pill {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .status-pill.termine {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .status-pill.a-faire {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      .status-pill.planifie {
+        background: #d1ecf1;
+        color: #0c5460;
+      }
+
+      .status-pill.a-venir {
+        background: #e2e3e5;
+        color: #383d41;
+      }
+
+      .priority-high {
+        color: #dc3545;
+        font-weight: 600;
+      }
+      .priority-medium {
+        color: #fd7e14;
+        font-weight: 600;
+      }
+      .priority-low {
+        color: #28a745;
+        font-weight: 600;
+      }
+
+      .rag {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .rag.green {
+        background: #28a745;
+      }
+      .rag.amber {
+        background: #ffc107;
+      }
+      .rag.red {
+        background: #dc3545;
+      }
+      .rag.blue {
+        background: #007bff;
+      }
+
+      .team {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .team-member {
+        background: #e9ecef;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .comments-section {
+        max-width: 100%;
+      }
+
+      .comment-list {
+        margin-bottom: 10px;
+        max-height: 150px;
+        overflow-y: auto;
+      }
+
+      .comment-item {
+        background: #f8f9fa;
+        padding: 8px 10px;
+        border-radius: 4px;
+        margin-bottom: 6px;
+        font-size: 13px;
+        border-left: 3px solid #667eea;
+      }
+
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+
+      .comment-info {
+        flex: 1;
+      }
+
+      .comment-author {
+        font-weight: 600;
+        color: #667eea;
+        font-size: 11px;
+      }
+
+      .comment-time {
+        font-size: 10px;
+        color: #6c757d;
+        margin-left: 8px;
+      }
+
+      .comment-actions {
+        display: flex;
+        gap: 4px;
+      }
+
+      .comment-action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px;
+        opacity: 0.6;
+        transition: all 0.2s;
+      }
+
+      .comment-action-btn:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .comment-action-btn.edit:hover {
+        color: #007bff;
+      }
+
+      .comment-action-btn.delete:hover {
+        color: #dc3545;
+      }
+
+      .comment-text {
+        color: #343a40;
+        line-height: 1.4;
+      }
+
+      .comment-edit-input {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #667eea;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 13px;
+        resize: vertical;
+      }
+
+      .comment-input-section {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+
+      .comment-input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 13px;
+        resize: vertical;
+        min-height: 40px;
+      }
+
+      .comment-input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .add-comment-btn {
+        padding: 8px 10px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .add-comment-btn:hover {
+        background: #5568d3;
+        transform: scale(1.05);
+      }
+
+      .add-comment-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .footer {
+        padding: 20px 30px;
+        background: #f8f9fa;
+        text-align: center;
+        font-size: 12px;
+        color: #6c757d;
+      }
+
+      .col-projet {
+        width: 9%;
+      }
+      .col-sujet {
+        width: 12%;
+      }
+      .col-objectif {
+        width: 14%;
+      }
+      .col-statut {
+        width: 8%;
+      }
+      .col-prochaine {
+        width: 12%;
+      }
+      .col-echeance {
+        width: 7%;
+      }
+      .col-priorite {
+        width: 6%;
+      }
+      .col-rag {
+        width: 4%;
+      }
+      .col-equipe {
+        width: 7%;
+      }
+      .col-commentaire {
+        width: 21%;
+      }
+
+      @media print {
         .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
+          display: none !important;
         }
-
-        .btn {
-            padding: 8px 16px;
-            border: 2px solid white;
-            background: transparent;
-            color: white;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        .legend {
-            display: flex;
-            gap: 20px;
-            padding: 20px 30px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-        }
-
-        .status-badge {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .status-badge.green { background: #28a745; }
-        .status-badge.orange { background: #fd7e14; }
-        .status-badge.red { background: #dc3545; }
-        .status-badge.blue { background: #007bff; }
-
-        /* Styles pour les filtres */
         .filters {
-            padding: 15px 30px;
-            background: #ffffff;
-            border-bottom: 1px solid #e9ecef;
+          display: none !important;
         }
-
-        .filter-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 10px;
+        .user-selector {
+          display: none !important;
         }
-
-        .filter-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .filters-label {
-            font-weight: 600;
-            color: #495057;
-            margin-right: 10px;
-            font-size: 13px;
-            min-width: 140px;
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            border: 2px solid #dee2e6;
-            background: white;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: #495057;
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .filter-btn.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-
-        .filter-btn.active.project-estima {
-            background: #1976d2;
-            border-color: #1976d2;
-        }
-
-        .filter-btn.active.project-datacollect {
-            background: #7b1fa2;
-            border-color: #7b1fa2;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        th {
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-            color: #495057;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 15px 12px;
-            border-bottom: 1px solid #e9ecef;
-            font-size: 14px;
-            vertical-align: top;
-        }
-
-        tbody tr {
-            transition: background 0.2s ease;
-        }
-
-        tbody tr:hover {
-            background: #f8f9fa;
-        }
-
-        tbody tr.hidden {
-            display: none;
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .project-tag.estima {
-            background: #e3f2fd;
-            color: #1976d2;
-        }
-
-        .project-tag.datacollect {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .status-pill.termine {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-pill.a-faire {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .status-pill.planifie {
-            background: #d1ecf1;
-            color: #0c5460;
-        }
-
-        .status-pill.a-venir {
-            background: #e2e3e5;
-            color: #383d41;
-        }
-
-        .priority-high { color: #dc3545; font-weight: 600; }
-        .priority-medium { color: #fd7e14; font-weight: 600; }
-        .priority-low { color: #28a745; font-weight: 600; }
-
-        .rag {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .rag.green { background: #28a745; }
-        .rag.amber { background: #fd7e14; }
-        .rag.red { background: #dc3545; }
-        .rag.blue { background: #007bff; }
-
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .team-member {
-            background: #667eea;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .comments-section {
-            min-width: 200px;
-        }
-
-        .comment-list {
-            margin-bottom: 10px;
-        }
-
-        .comment-item {
-            background: #f8f9fa;
-            padding: 8px 12px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        .comment-author {
-            font-weight: 600;
-            color: #667eea;
-            font-size: 12px;
-        }
-
-        .comment-time {
-            font-size: 11px;
-            color: #6c757d;
-        }
-
-        .comment-text {
-            color: #495057;
-            line-height: 1.4;
-        }
-
-        .comment-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .comment-action-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 11px;
-            color: #6c757d;
-            padding: 2px 6px;
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
-
-        .comment-action-btn:hover {
-            background: #e9ecef;
-            color: #495057;
-        }
-
-        .comment-input-section {
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-        }
-
-        .comment-input {
-            flex: 1;
-            padding: 8px;
-            border: 2px solid #e9ecef;
-            border-radius: 6px;
-            font-size: 13px;
-            font-family: inherit;
-            resize: vertical;
-        }
-
-        .comment-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
         .add-comment-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
+          display: none !important;
         }
+        .comment-input-section {
+          display: none !important;
+        }
+        .comment-action-btn {
+          display: none !important;
+        }
+        body {
+          padding: 0;
+          background: white;
+        }
+        .container {
+          box-shadow: none;
+        }
+        .header {
+          padding: 20px 30px;
+        }
+        .header-left {
+          width: 100%;
+          text-align: center;
+        }
+        .header-right {
+          display: none !important;
+        }
+        .week-badge {
+          display: inline-block;
+          margin-top: 10px;
+        }
+      }
 
-        .add-comment-btn:hover {
-            background: #5568d3;
-            transform: scale(1.1);
-        }
-
-        .footer {
-            padding: 20px 30px;
-            background: #f8f9fa;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-            color: #6c757d;
-            font-size: 13px;
-        }
-
-        #loading {
-            text-align: center;
-            padding: 40px;
-            color: #6c757d;
-        }
-
-        @media print {
-            .user-selector,
-            .action-buttons,
-            .filters,
-            .comment-input-section,
-            .comment-action-btn {
-                display: none !important;
-            }
-        }
+      .loading {
+        text-align: center;
+        padding: 20px;
+        color: #6c757d;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container" id="report-content">
-        <div class="header">
-            <div class="header-left">
-                <h1>📊 Rapport d'activité hebdomadaire</h1>
-                <p>Data-Collect & MeTod</p>
-            </div>
-            <div class="header-right">
-                <div class="user-selector">
-                    <label for="currentUser">Utilisateur:</label>
-                    <select id="currentUser">
-                        <option value="Dassoah">Dassoah</option>
-                        <option value="Savio">Savio</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </div>
-                <div class="week-badge">Semaine du 20 - 27 octobre 2025</div>
-                <div class="action-buttons">
-                    <a href="../index.html" class="btn">← Retour</a>
-                    <button class="btn" onclick="downloadPDF()">📥 Télécharger PDF</button>
-                </div>
-            </div>
+      <div class="header">
+        <div class="header-left">
+          <h1>📊 Rapport d'avancement</h1>
+          <p>MeTod & Observatoire | 13 → 20 octobre 2025</p>
         </div>
-
-        <div class="legend">
-            <div class="legend-item">
-                <span class="status-badge green"></span>
-                <span>Réalisé / Validé</span>
-            </div>
-            <div class="legend-item">
-                <span class="status-badge orange"></span>
-                <span>Attention / En attente</span>
-            </div>
-            <div class="legend-item">
-                <span class="status-badge red"></span>
-                <span>Problème / Bloqué</span>
-            </div>
-            <div class="legend-item">
-                <span class="status-badge blue"></span>
-                <span>Planifié / À venir</span>
-            </div>
+        <div class="header-right">
+          <div class="user-selector">
+            <label for="currentUser">👤 Utilisateur:</label>
+            <select id="currentUser">
+              <option value="Ludovic">Ludovic</option>
+              <option value="Sofian">Sofian</option>
+              <option value="Franck">Franck</option>
+              <option value="Celine">Celine</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="week-badge"> 13 - 20 octobre 2025</div>
+          <div class="action-buttons">
+            <a href="index.html" class="btn">← Retour</a>
+            <button onclick="downloadPDF()" class="btn">📥 PDF</button>
+          </div>
         </div>
+      </div>
 
-        <div class="filters">
-            <div class="filter-group">
-                <span class="filters-label">🎯 Filtrer par projet:</span>
-                <button class="filter-btn active" data-filter-type="projet" data-filter="all">Tous</button>
-                <button class="filter-btn project-estima" data-filter-type="projet" data-filter="estima">Estima</button>
-                <button class="filter-btn project-datacollect" data-filter-type="projet" data-filter="datacollect">Data-Collect</button>
-            </div>
-            <div class="filter-group">
-                <span class="filters-label">📊 Filtrer par statut:</span>
-                <button class="filter-btn active" data-filter-type="statut" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter-type="statut" data-filter="termine">Terminé</button>
-                <button class="filter-btn" data-filter-type="statut" data-filter="a-faire">À faire</button>
-                <button class="filter-btn" data-filter-type="statut" data-filter="planifie">Planifié</button>
-                <button class="filter-btn" data-filter-type="statut" data-filter="a-venir">À venir</button>
-            </div>
+      <div class="legend">
+        <div class="legend-item">
+          <span class="status-badge green"></span>
+          <span>Terminé</span>
         </div>
-
-        <div id="loading">Chargement des activités...</div>
-
-        <table id="activities-table" style="display: none;">
-            <thead>
-                <tr>
-                    <th>Projet</th>
-                    <th>Sujet</th>
-                    <th>Objectif</th>
-                    <th>Statut</th>
-                    <th>Prochaine étape</th>
-                    <th>Échéance</th>
-                    <th>Priorité</th>
-                    <th>RAG</th>
-                    <th>Équipe</th>
-                    <th>Commentaires</th>
-                </tr>
-            </thead>
-            <tbody id="activities-tbody">
-                <!-- Les lignes seront générées par JavaScript -->
-            </tbody>
-        </table>
-
-        <div class="footer">
-            <p>© 2025 Data-Collect & MeTod | Dassoah & Savio</p>
+        <div class="legend-item">
+          <span class="status-badge orange"></span>
+          <span>À faire</span>
         </div>
+        <div class="legend-item">
+          <span class="status-badge blue"></span>
+          <span>Planifié</span>
+        </div>
+        <div class="legend-item">
+          <span class="status-badge red"></span>
+          <span>À venir</span>
+        </div>
+      </div>
+
+      <!-- Section des filtres modifiée -->
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filters-label">Filtrer par projet :</span>
+          <button class="filter-btn active" data-filter-type="projet" data-filter="all">Tous les projets</button>
+          <button class="filter-btn project-estima" data-filter-type="projet" data-filter="estima">Estima</button>
+           <button class="filter-btn project-gestion" data-filter-type="projet" data-filter="gestiona">Gestiona</button>
+          <button class="filter-btn project-datacollect" data-filter-type="projet" data-filter="datacollect">Data-Collect</button>
+           <button class="filter-btn project-indicateur" data-filter-type="projet" data-filter="indicateur">Indicateur des coûts</button>
+          <button class="filter-btn project-observatoire" data-filter-type="projet" data-filter="observatoire">GT-Observatoire</button>
+          <button class="filter-btn project-etude_opcc" data-filter-type="projet" data-filter="etude_opcc">Etudes OPCC</button>
+
+          </div>
+
+
+        <div class="filter-group"> 
+          <span class="filters-label">Filtrer par statut :</span>
+          <button class="filter-btn active" data-filter-type="statut" data-filter="all">Tous les statuts</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="termine">Terminé</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="a-faire">À faire</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="planifie">Planifié</button>
+          <button class="filter-btn" data-filter-type="statut" data-filter="a-venir">À venir</button>
+        </div>
+      </div>
+
+      <div class="loading" id="loading">Chargement des données...</div>
+
+      <table id="activities-table" style="display: none">
+        <thead>
+          <tr>
+            <th class="col-projet">Projet</th>
+            <th class="col-sujet">Sujet/Activité</th>
+            <th class="col-objectif">Objectif</th>
+            <th class="col-statut">État</th>
+            <th class="col-prochaine">Prochaine Étape</th>
+            <th class="col-echeance">Échéance</th>
+            <th class="col-priorite">Priorité</th>
+            <th class="col-rag">RAG</th>
+            <th class="col-equipe">Équipe</th>
+            <th class="col-commentaire">Commentaires</th>
+          </tr>
+        </thead>
+        <tbody id="activities-tbody"></tbody>
+      </table>
+
+      <div class="footer">
+        Auteur : Service Informatique Untec  | Période : 13 → 20 octobre 2025
+      </div>
     </div>
-
     <script src="rapport-data.js"></script>
-    <script>
-        // Filtres actifs
-        let currentFilters = {
-            projet: 'all',
-            statut: 'all'
-        };
 
-        // Générer le tableau
-        function generateTable() {
-            const tbody = document.getElementById('activities-tbody');
-            tbody.innerHTML = '';
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        push,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
 
-            activities.forEach(activity => {
-                const row = document.createElement('tr');
-                row.dataset.statut = activity.statut;
-                row.dataset.projet = activity.projet;
+      const firebaseConfig = {
+        apiKey: "AIzaSyChbvHXKY0oTwMrD6R0L8f-X9y6e1YOeD8",
+        authDomain: "rapport-de-suivi-untec.firebaseapp.com",
+        databaseURL:
+          "https://rapport-de-suivi-untec-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "rapport-de-suivi-untec",
+        storageBucket: "rapport-de-suivi-untec.firebasestorage.app",
+        messagingSenderId: "506367824251",
+        appId: "1:506367824251:web:9ef4ee69beffd4db99adde",
+      };
 
-                // Créer la section commentaires
-                const commentsSection = document.createElement('div');
-                commentsSection.className = 'comments-section';
-                commentsSection.innerHTML = `
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // État des filtres
+      let currentFilters = {
+        projet: 'all',
+        statut: 'all'
+      };
+
+      // Fonction pour charger les commentaires
+      function loadComments(activityId, commentsDiv) {
+        const commentsRef = ref(
+          db,
+          `semaine-13-oct-2025/comments/${activityId}`
+        );
+        onValue(commentsRef, (snapshot) => {
+          const commentsList = commentsDiv.querySelector(".comment-list");
+          commentsList.innerHTML = "";
+
+          const comments = snapshot.val();
+          if (comments) {
+            Object.entries(comments).forEach(([key, comment]) => {
+              const commentDiv = document.createElement("div");
+              commentDiv.className = "comment-item";
+              commentDiv.dataset.commentId = key;
+              commentDiv.innerHTML = `
+                            <div class="comment-header">
+                                <div class="comment-info">
+                                    <span class="comment-author">${
+                                      comment.author
+                                    }</span>
+                                    <span class="comment-time">${new Date(
+                                      comment.timestamp
+                                    ).toLocaleString("fr-FR", {
+                                      day: "2-digit",
+                                      month: "2-digit",
+                                      year: "numeric",
+                                      hour: "2-digit",
+                                      minute: "2-digit",
+                                    })}</span>
+                                </div>
+                                <div class="comment-actions">
+                                    <button class="comment-action-btn edit" title="Modifier le commentaire">✏️</button>
+                                    <button class="comment-action-btn delete" title="Supprimer le commentaire">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="comment-text">${comment.text}</div>
+                        `;
+
+              // Événement édition
+              const editBtn = commentDiv.querySelector(".edit");
+              editBtn.addEventListener("click", () => {
+                editComment(activityId, key, comment.text, commentDiv);
+              });
+
+              // Événement suppression
+              const deleteBtn = commentDiv.querySelector(".delete");
+              deleteBtn.addEventListener("click", () => {
+                if (
+                  confirm("Êtes-vous sûr de vouloir supprimer ce commentaire ?")
+                ) {
+                  deleteComment(activityId, key);
+                }
+              });
+
+              commentsList.appendChild(commentDiv);
+            });
+          }
+        });
+      }
+
+      // Fonction pour ajouter un commentaire
+      function addComment(activityId, text, author) {
+        const commentsRef = ref(
+          db,
+          `semaine-13-oct-2025/comments/${activityId}`
+        );
+        const newCommentRef = push(commentsRef);
+
+        set(newCommentRef, {
+          text: text,
+          author: author,
+          timestamp: Date.now(),
+        });
+      }
+
+      // Fonction pour éditer un commentaire
+      function editComment(activityId, commentId, currentText, commentDiv) {
+        const textDiv = commentDiv.querySelector(".comment-text");
+        const originalHTML = textDiv.innerHTML;
+
+        textDiv.innerHTML = `
+                <textarea class="comment-edit-input" rows="2">${currentText}</textarea>
+                <div style="margin-top: 8px; display: flex; gap: 8px;">
+                    <button class="add-comment-btn" style="flex: 1;" title="Sauvegarder">💾</button>
+                    <button class="add-comment-btn" style="flex: 1; background: #6c757d;" title="Annuler">❌</button>
+                </div>
+            `;
+
+        const textarea = textDiv.querySelector("textarea");
+        const saveBtn = textDiv.querySelectorAll("button")[0];
+        const cancelBtn = textDiv.querySelectorAll("button")[1];
+
+        saveBtn.addEventListener("click", () => {
+          const newText = textarea.value.trim();
+          if (newText) {
+            const commentRef = ref(
+              db,
+              `semaine-13-oct-2025/comments/${activityId}/${commentId}`
+            );
+            const currentUser = document.getElementById("currentUser").value;
+            set(commentRef, {
+              text: newText,
+              author: currentUser,
+              timestamp: Date.now(),
+            });
+          }
+        });
+
+        cancelBtn.addEventListener("click", () => {
+          textDiv.innerHTML = originalHTML;
+        });
+      }
+
+      // Fonction pour supprimer un commentaire
+      function deleteComment(activityId, commentId) {
+        const commentRef = ref(
+          db,
+          `semaine-13-oct-2025/comments/${activityId}/${commentId}`
+        );
+        set(commentRef, null);
+      }
+
+      // Générer le tableau
+      function generateTable() {
+        const tbody = document.getElementById("activities-tbody");
+        tbody.innerHTML = "";
+
+        activities.forEach((activity) => {
+          const row = document.createElement("tr");
+          row.dataset.statut = activity.statut;
+          row.dataset.projet = activity.projet;
+
+          // Créer la section commentaires
+          const commentsSection = document.createElement("div");
+          commentsSection.className = "comments-section";
+          commentsSection.innerHTML = `
                     <div class="comment-list"></div>
                     <div class="comment-input-section">
                         <textarea class="comment-input" placeholder="Ajouter un commentaire..." rows="2"></textarea>
@@ -556,145 +860,228 @@
                     </div>
                 `;
 
-                row.innerHTML = `
-                    <td><span class="project-tag ${activity.projet}">${activity.projetNom}</span></td>
+          row.innerHTML = `
+                    <td><span class="project-tag ${activity.projet}">${
+            activity.projetNom
+          }</span></td>
                     <td>${activity.sujet}</td>
                     <td>${activity.objectif}</td>
-                    <td><span class="status-pill ${activity.statut}">${activity.statutNom}</span></td>
+                    <td><span class="status-pill ${activity.statut}">${
+            activity.statutNom
+          }</span></td>
                     <td>${activity.prochaine}</td>
                     <td>${activity.echeance}</td>
-                    <td><span class="priority-${activity.priorite}">${activity.prioriteNom}</span></td>
+                    <td><span class="priority-${activity.priorite}">${
+            activity.prioriteNom
+          }</span></td>
                     <td><span class="rag ${activity.rag}"></span></td>
                     <td>
                         <div class="team">
-                            ${activity.equipe.map(member => `<span class="team-member">${member}</span>`).join('')}
+                            ${activity.equipe
+                              .map(
+                                (member) =>
+                                  `<span class="team-member">${member}</span>`
+                              )
+                              .join("")}
                         </div>
                     </td>
                     <td></td>
                 `;
 
-                // Ajouter la section commentaires dans la dernière cellule
-                row.lastElementChild.appendChild(commentsSection);
+          // Ajouter la section commentaires dans la dernière cellule
+          row.lastElementChild.appendChild(commentsSection);
 
-                // Ajouter l'événement pour le bouton
-                const addBtn = commentsSection.querySelector('.add-comment-btn');
-                const textarea = commentsSection.querySelector('.comment-input');
+          // Charger les commentaires existants
+          loadComments(activity.id, commentsSection);
 
-                addBtn.addEventListener('click', () => {
-                    const text = textarea.value.trim();
-                    if (text) {
-                        const currentUser = document.getElementById('currentUser').value;
-                        let author = currentUser;
+          // Ajouter l'événement pour le bouton
+          const addBtn = commentsSection.querySelector(".add-comment-btn");
+          const textarea = commentsSection.querySelector(".comment-input");
 
-                        if (currentUser === 'Autre') {
-                            author = prompt('Votre nom:', '') || 'Anonyme';
-                        }
+          addBtn.addEventListener("click", () => {
+            const text = textarea.value.trim();
+            if (text) {
+              const currentUser = document.getElementById("currentUser").value;
+              let author = currentUser;
 
-                        // Ajouter le commentaire localement
-                        addCommentLocal(commentsSection.querySelector('.comment-list'), text, author);
-                        textarea.value = '';
-                    }
-                });
+              // Si "Autre" est sélectionné, demander le nom
+              if (currentUser === "Autre") {
+                author = prompt("Votre nom:", "") || "Anonyme";
+              }
 
-                tbody.appendChild(row);
-            });
+              addComment(activity.id, text, author);
+              textarea.value = "";
+            }
+          });
 
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('activities-table').style.display = 'table';
-        }
-
-        // Ajouter un commentaire localement
-        function addCommentLocal(commentList, text, author) {
-            const commentDiv = document.createElement('div');
-            commentDiv.className = 'comment-item';
-            commentDiv.innerHTML = `
-                <div class="comment-header">
-                    <span class="comment-author">${author}</span>
-                    <span class="comment-time">${new Date().toLocaleString('fr-FR')}</span>
-                </div>
-                <div class="comment-text">${text}</div>
-            `;
-            commentList.appendChild(commentDiv);
-        }
-
-        // Fonction pour filtrer les activités
-        function filterActivities() {
-            const rows = document.querySelectorAll('#activities-tbody tr');
-
-            rows.forEach(row => {
-                const projetMatch = currentFilters.projet === 'all' || row.dataset.projet === currentFilters.projet;
-                const statutMatch = currentFilters.statut === 'all' || row.dataset.statut === currentFilters.statut;
-
-                if (projetMatch && statutMatch) {
-                    row.classList.remove('hidden');
-                } else {
-                    row.classList.add('hidden');
-                }
-            });
-        }
-
-        // Gestion des clics sur les boutons de filtre
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filterType = this.dataset.filterType;
-                const filterValue = this.dataset.filter;
-
-                // Retirer la classe active des boutons du même type
-                document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`).forEach(b => {
-                    b.classList.remove('active');
-                });
-
-                // Ajouter la classe active au bouton cliqué
-                this.classList.add('active');
-
-                // Mettre à jour le filtre
-                currentFilters[filterType] = filterValue;
-
-                // Appliquer les filtres
-                filterActivities();
-            });
+          tbody.appendChild(row);
         });
 
-        // Initialiser le tableau
-        generateTable();
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("activities-table").style.display = "table";
+      }
 
-        // Fonction PDF
-        window.downloadPDF = function() {
-            const element = document.getElementById('report-content');
-            
-            const elementsToHide = [
-                document.querySelector('.user-selector'),
-                document.querySelector('.action-buttons'),
-                document.querySelector('.filters'),
-                ...document.querySelectorAll('.comment-input-section')
-            ];
-            
-            elementsToHide.forEach(el => {
-                if (el) el.style.display = 'none';
-            });
-            
-            const opt = {
-                margin: [8, 8, 8, 8],
-                filename: 'rapport-semaine-20-oct-2025.pdf',
-                image: { type: 'jpeg', quality: 0.95 },
-                html2canvas: { 
-                    scale: 1.5,
-                    letterRendering: true,
-                    useCORS: true
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a3', 
-                    orientation: 'landscape' 
-                }
-            };
+      // Fonction pour filtrer les activités avec les deux critères
+      function filterActivities() {
+        const rows = document.querySelectorAll("#activities-tbody tr");
 
-            html2pdf().set(opt).from(element).save().then(() => {
-                elementsToHide.forEach(el => {
-                    if (el) el.style.display = '';
-                });
-            });
+        rows.forEach((row) => {
+          const projetMatch = currentFilters.projet === 'all' || row.dataset.projet === currentFilters.projet;
+          const statutMatch = currentFilters.statut === 'all' || row.dataset.statut === currentFilters.statut;
+
+          if (projetMatch && statutMatch) {
+            row.classList.remove("hidden");
+          } else {
+            row.classList.add("hidden");
+          }
+        });
+      }
+
+      // Gestion des clics sur les boutons de filtre
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const filterType = this.dataset.filterType;
+          const filterValue = this.dataset.filter;
+
+          // Retirer la classe active uniquement des boutons du même type
+          document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`).forEach((b) => {
+            b.classList.remove("active");
+          });
+
+          // Ajouter la classe active au bouton cliqué
+          this.classList.add("active");
+
+          // Mettre à jour le filtre correspondant
+          currentFilters[filterType] = filterValue;
+
+          // Appliquer les filtres
+          filterActivities();
+        });
+      });
+
+      // Initialiser le tableau
+      generateTable();
+
+      // Fonction PDF
+      window.downloadPDF = function () {
+        const element = document.getElementById("report-content");
+        
+        // Éléments à cacher temporairement
+        const elementsToHide = [
+          document.querySelector('.user-selector'),
+          document.querySelector('.action-buttons'),
+          document.querySelector('.filters'),
+          ...document.querySelectorAll('.comment-input-section'),
+          ...document.querySelectorAll('.comment-action-btn')
+        ];
+        
+        // Cacher les éléments
+        elementsToHide.forEach(el => {
+          if (el) el.style.display = 'none';
+        });
+        
+        // Ajuster le header pour le PDF
+        const header = document.querySelector('.header');
+        const headerRight = document.querySelector('.header-right');
+        const headerLeft = document.querySelector('.header-left');
+        const legend = document.querySelector('.legend');
+        const footer = document.querySelector('.footer');
+        const table = document.querySelector('table');
+        const allCells = document.querySelectorAll('td, th');
+        
+        const originalStyles = {
+          header: header.style.cssText,
+          headerRight: headerRight ? headerRight.style.cssText : '',
+          headerLeft: headerLeft ? headerLeft.style.cssText : '',
+          legend: legend ? legend.style.cssText : '',
+          footer: footer ? footer.style.cssText : '',
+          table: table ? table.style.cssText : '',
+          cells: Array.from(allCells).map(cell => cell.style.cssText)
         };
+        
+        // Optimiser pour le PDF
+        header.style.padding = '15px 20px';
+        header.style.textAlign = 'center';
+        if (headerRight) headerRight.style.display = 'none';
+        if (headerLeft) {
+          headerLeft.style.textAlign = 'center';
+          headerLeft.style.width = '100%';
+        }
+        if (legend) {
+          legend.style.padding = '10px 20px';
+          legend.style.fontSize = '11px';
+        }
+        if (footer) {
+          footer.style.padding = '10px 20px';
+          footer.style.fontSize = '10px';
+        }
+        
+        // Optimiser le tableau
+        allCells.forEach(cell => {
+          cell.style.padding = '8px 6px';
+          cell.style.fontSize = '10px';
+          cell.style.lineHeight = '1.3';
+        });
+        
+        // Réduire la taille des éléments dans les cellules
+        document.querySelectorAll('.project-tag, .status-pill, .team-member').forEach(el => {
+          el.style.fontSize = '9px';
+          el.style.padding = '3px 8px';
+        });
+        
+        document.querySelectorAll('.rag').forEach(el => {
+          el.style.width = '18px';
+          el.style.height = '18px';
+        });
+        
+        document.querySelectorAll('.comment-item').forEach(el => {
+          el.style.fontSize = '10px';
+          el.style.padding = '6px 8px';
+          el.style.marginBottom = '4px';
+        });
+        
+        document.querySelectorAll('.comment-author, .comment-time').forEach(el => {
+          el.style.fontSize = '9px';
+        });
+        
+        const opt = {
+          margin: [8, 8, 8, 8],
+          filename: "rapport-3-20-oct-2025.pdf",
+          image: { type: "jpeg", quality: 0.95 },
+          html2canvas: { 
+            scale: 1.5,
+            letterRendering: true,
+            useCORS: true
+          },
+          jsPDF: { 
+            unit: "mm", 
+            format: "a3", 
+            orientation: "landscape" 
+          },
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Restaurer l'affichage après génération du PDF
+          elementsToHide.forEach(el => {
+            if (el) el.style.display = '';
+          });
+          
+          header.style.cssText = originalStyles.header;
+          if (headerRight) headerRight.style.cssText = originalStyles.headerRight;
+          if (headerLeft) headerLeft.style.cssText = originalStyles.headerLeft;
+          if (legend) legend.style.cssText = originalStyles.legend;
+          if (footer) footer.style.cssText = originalStyles.footer;
+          if (table) table.style.cssText = originalStyles.table;
+          
+          allCells.forEach((cell, index) => {
+            cell.style.cssText = originalStyles.cells[index];
+          });
+          
+          document.querySelectorAll('.project-tag, .status-pill, .team-member, .rag, .comment-item, .comment-author, .comment-time').forEach(el => {
+            el.style.cssText = '';
+          });
+        });
+      };
     </script>
-</body>
+  </body>
 </html>
