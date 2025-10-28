@@ -128,7 +128,7 @@ const activities = [
         priorite: "high",
         prioriteNom: "Haute",
         rag: "red",
-        equipe: ["Dassoah"]
+        equipe: ["Dassoah", "Savio"]
     },
 
 
@@ -200,8 +200,25 @@ const activities = [
         equipe: ["Savio", "Dassoah"]
     },
 
-    {
+   {
         id: "recap-2-5",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Convention technique Vizcab, Emersus / Untec",
+        objectif: "Convention technique Vizcab, Emersus / Untec; Transmission par Vizcab et Emersus à l’Untec, via Data-Collect, des données d’empreinte carbone.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: " - Récupération et exploitation des données d’emprunte carbone <br> - Traitement et exploitation de la donnée dans Data-Collect",
+        echeance: "À déterminer",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "amber",
+        equipe: ["Savio", "Dassoah"]
+    },
+
+
+    {
+        id: "recap-2-6",
         projet: "indicateur",
         projetNom: "Indicateurs",
         sujet: "Production des indicateurs de coût",
@@ -218,7 +235,7 @@ const activities = [
 
 
     {
-        id: "recap-2-6",
+        id: "recap-2-7",
         projet: "indicateur",
         projetNom: "Indicateurs",
         sujet: "Production des indicateurs de coût",
@@ -236,7 +253,7 @@ const activities = [
 
 
     {
-        id: "savio-2-7",
+        id: "savio-2-8",
         projet: "observatoire",
         projetNom: "GT-Observatoire",
         sujet: "Rencontre GT Observatoire",
@@ -253,7 +270,7 @@ const activities = [
 
 
       {
-        id: "savio-2-8",
+        id: "savio-2-9",
         projet: "etude_opcc",
         projetNom: "Études OPCC",
         sujet: "Les études de l'OPCC (Étude N°1 USH)",
@@ -269,7 +286,7 @@ const activities = [
     },
 
       {
-        id: "savio-2-9",
+        id: "savio-2-10",
         projet: "etude_opcc",
         projetNom: "Études OPCC",
         sujet: "Les études de l'OPCC (Étude N°7 FFTB)",
@@ -286,7 +303,7 @@ const activities = [
 
 
     {
-        id: "savio-2-10",
+        id: "savio-2-11",
         projet: "observatoire",
         projetNom: "Communication Observatoire",
         sujet: "Support de communication",
@@ -302,7 +319,7 @@ const activities = [
     },
 
     {
-        id: "savio-2-11",
+        id: "savio-2-12",
         projet: "datacollect",
         projetNom: "Webinaire Data-Collect",
         sujet: "Organisation d'un webinaire Data-Collect",
