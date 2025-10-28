@@ -128,7 +128,7 @@ const activities = [
         priorite: "high",
         prioriteNom: "Haute",
         rag: "red",
-        equipe: ["Dassoah", "Savio"]
+        equipe: ["Dassoah"]
     },
 
 
