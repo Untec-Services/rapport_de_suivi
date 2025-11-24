@@ -1,0 +1,352 @@
+// rapport-data.js - Semaine du 10 novembre 2025
+const activities = [
+
+    // Dassoah 
+    {
+        id: "estima-1-1",
+        projet: "estima",
+        projetNom: "Estima",
+        sujet: "Convention technique\n Vizcab, Emersus / Untec<br> - Transmission par Untec Services à Emersus et Vizcab des données de coûts constatés, issues d'Estima.",
+        objectif: "Développement en interne d'une interface d'échange de données sécurisée (API), permettant aux deux éditeurs de récupérer le prix estimé des prestations basées sur la méthode Untec.",
+        statut: "termine",
+        statutNom: "Terminé",
+        prochaine: "- Rendez-vous de présentation final et mise en production\n <br>- Activation des autorisations de connexion à l'API\n <br>- Création de deux profils utilisateur de test sur Estima pour Vizcab et Emersus",
+        echeance: "24/10/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "green",
+        equipe: ["Dassoah", "Savio"]
+    },
+
+    {
+        id: "estima-1-2",
+        projet: "estima",
+        projetNom: "Estima",
+        sujet: "Estima 2.0",
+        objectif: "Refonte complète de la suite logicielle MeTod en version 2.0, incluant la réécriture intégrale du code et une mise à niveau technologique.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "- Harmonisation et correction des formules de calcul entre les versions 1.0 et 2.0",
+        echeance: "10/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Dassoah"]
+    },
+
+    {
+        id: "estima-1-3",
+        projet: "estima",
+        projetNom: "Estima",
+        sujet: "Estima 2.0",
+        objectif: "Mise en production",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "Déployer officiellement la nouvelle version d'Estima pour tous les utilisateurs",
+        echeance: "15/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "red",
+        equipe: ["Dassoah"]
+    },
+
+    {
+        id: "estima-1-4",
+        projet: "estima",
+        projetNom: "Estima",
+        sujet: "Backoffice Estima 2.0",
+        objectif: "Création d'un backoffice pour Rémy permettant la gestion des profils utilisateurs",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "- Développement de l'interface d'administration<br>- Mise en place des fonctionnalités de création et gestion des profils utilisateurs",
+        echeance: "30/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Dassoah"]
+    },
+
+    {
+        id: "metod-1-5",
+        projet: "estima",
+        projetNom: "MeTod 2.0",
+        sujet: "Gestion des paiements",
+        objectif: "Mise en place du système de gestion des paiements pour MeTod 2.0",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "- Analyse des besoins pour la gestion des paiements<br>- Intégration d'une solution de paiement sécurisée",
+        echeance: "15/12/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Dassoah"]
+    },
+
+   {
+        id: "recap-1-6",
+        projet: "estima",
+        projetNom: "Estima",
+        sujet: "Plan de communication",
+        objectif: "24 oct : finalisation technique. 15 nov : mise en production. En parallèle : plan de communication et collecte des e-mails",
+        statut: "planifie",
+        statutNom: "Planifié",
+        prochaine: "Suivi du planning et préparation communication",
+        echeance: "15/11/2025",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "blue",
+        equipe: ["Emma", "Sofian"]
+    },
+
+
+    {
+        id: "gestiona-1-7",
+        projet: "gestiona",
+        projetNom: "Gestiona",
+        sujet: "Réécriture du logiciel Gestiona - Phase d'analyse",
+        objectif: "Phase préparatoire : analyse du logiciel existant et compilation de la documentation",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "- Début du projet : 1er décembre 2025<br>- Phase d'analyse (2 semaines minimum)<br>- Étude approfondie du logiciel actuel<br>- Recherche et compilation de toute la documentation existante<br>- Documentation de l'architecture et des fonctionnalités",
+        echeance: "15/12/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Dassoah", "Savio"]
+    },
+
+    {
+        id: "gestiona-1-8",
+        projet: "gestiona",
+        projetNom: "Gestiona",
+        sujet: "Réécriture du logiciel Gestiona - Développement",
+        objectif: "Développement de la réécriture intégrale de Gestiona en version 2.0",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "- Évaluation de la charge de travail<br>- Identification des ressources techniques et humaines<br>- Élaboration du plan de travail détaillé<br>- Démarrage du développement",
+        echeance: "10/02/2026",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "red",
+        equipe: ["Dassoah", "Savio"]
+    },
+
+
+    
+    // Savio
+    {
+        id: "recap-2-1",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Bilan et état d'avancement",
+        objectif: "Traitement des données et production des indicateurs de contribution, Taux de validation des projets par les référents, Affichage du taux de non-conformité, Top régions contributrices, Top utilisateurs",
+        statut: "termine",
+        statutNom: "Terminé",
+        prochaine: "Mise en place des histogrammes et des courbes d'évolution des inscriptions des utilisateurs, Nombre et taux de profils actifs et inactifs.",
+        echeance: "28/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "red",
+        equipe: ["Savio"]
+    },
+
+
+     {
+        id: "savio-2-2",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Développements informatiques",
+        objectif: "Correction des ratios statistiques, ajout de champs dans l'onglet Ma région dédié aux référents, affichage du taux de validation de chaque référent et de la non-conformité de chaque utilisateur",
+        statut: "termine",
+        statutNom: "Terminé",
+        prochaine: "Développement des prochaines fonctionnalités",
+        echeance: "20/10/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "green",
+        equipe: ["Savio"]
+    },
+
+
+    {
+        id: "savio-2-3",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Système de badges OPQTECC",
+        objectif: "Finalisation et mise en production du système de badges avec calcul automatique des heures de formation (2h30 dès 5 projets conformes + 15 min par projet supplémentaire)",
+        statut: "termine",
+        statutNom: "Terminé",
+        prochaine: "Validation et suivi de l'obtention des heures OPQTECC et de l'attestation Data-Collect",
+        echeance: "De manière continue",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "green",
+        equipe: ["Savio"]
+    },
+
+    {
+        id: "recap-2-4",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Suivi Régional Data-Collect <br> Mise en place d'un point de suivi trimestriel avec chaque référent Data-Collect (durée : 40 min à 1 h)",
+        objectif: "Point sur les actions menées en région pour alimenter Data-Collect, Vérification des projets, en cours, conformes, non-conformes, échange sur les avantages (récompenses) liés à la saisie d'un plus grand nombre de projets dans Data-Collect, Validation",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "03-10-2026 ⇒ Laurent Porocchia (Région Occitanie) <br><br>10-10-2025 ⇒ Léna Ratel – Région Nouvelle-Aquitaine  <br><br> 24-10-2025 avec Julien Delion ⇒ Région Grand Est <br><br>07-11-2025 ⇒ José De Oliviera – Région île-de-France<br><br> 12-11-2025 avec Julie HENOCQ ⇒ Région Ouest",
+        echeance: "30/01/2026",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "amber",
+        equipe: ["Savio", "Dassoah"]
+    },
+
+   {
+        id: "recap-2-5",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Convention technique Vizcab, Emersus / Untec",
+        objectif: "Convention technique Vizcab, Emersus / Untec; Transmission par Vizcab et Emersus à l'Untec, via Data-Collect, des données d'empreinte carbone.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: " - Récupération et exploitation des données d'emprunte carbone <br> - Traitement et exploitation de la donnée dans Data-Collect",
+        echeance: "À déterminer",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "amber",
+        equipe: ["Savio", "Dassoah"]
+    },
+
+
+ {
+        id: "recap-2-6",
+        projet: "datacollect",
+        projetNom: "Data-Collect",
+        sujet: "Analyser d'un partenariat entre SOC Informatique / Untec",
+        objectif: " Analyse d'un partenariat entre SOC Informatique et Untec Services à travers Data-Collect.Transmission à l'équipe de SOC Informatique des accès à Data-Collect ainsi que des documents nécessaires à l'alimentation des dossiers.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: " À travers le logiciel DeviSOC, SOC Informatique pourra alimenter de manière automatisée Data-Collect en données",
+        echeance: "À déterminer",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Savio", "Dassoah"]
+    },
+
+
+    {
+        id: "recap-2-7",
+        projet: "indicateur",
+        projetNom: "Indicateurs",
+        sujet: "Production des indicateurs de coût",
+        objectif: "Développement d'une interface de publication des indicateurs de coût",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "Développement dynamique de l'interface de publication des indicateurs à destination du grand public, par région, au niveau national et par catégorie de bâtiment.",
+        echeance: "05/02/2026",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Savio", "Nicola P"]
+    },
+
+
+    {
+        id: "recap-2-8",
+        projet: "indicateur",
+        projetNom: "Indicateurs",
+        sujet: "Production des indicateurs de coût",
+        objectif: "Publication des indicateurs de coût niveau national sur le site internet de l'Iriec",
+        statut: "a-venir",
+        statutNom: "À venir",
+        prochaine: "Développement de l'interface de publication des indicateurs à destination du grand public, au niveau national, toute catégorie de construction,Type de construction : Neuf et Rénovation.",
+        echeance: "17/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Savio"]
+    },
+
+    {
+        id: "savio-2-9",
+        projet: "observatoire",
+        projetNom: "GT-Observatoire",
+        sujet: "Rencontre GT Observatoire",
+        objectif: "Point d'avancement sur les différents sujets portés par l'Observatoire",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "Organisation d'une rencontre élargie, qui sera également la dernière de l'année 2025",
+        echeance: "20/11/2025",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "red",
+        equipe: ["Savio", "Ludovic"]
+    },
+
+
+      {
+        id: "savio-2-10",
+        projet: "etude_opcc",
+        projetNom: "Études OPCC",
+        sujet: "Les études de l'OPCC (Étude N°1 USH)",
+        objectif: "Suivi de la finalisation de l'étude 1 de l'USH avec le groupement de prestataires. Organisation des points de suivi pour définir les prochaines étapes en vue de finaliser cette étude.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "Une comparaison des résultats avec l'étude menée par Sylvain Tessier « Évaluation de l'impact économique des seuils RE2025 et RE2028 sur le coût de construction » sera menée.",
+        echeance: "17/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Savio"]
+    },
+
+      {
+        id: "savio-2-11",
+        projet: "etude_opcc",
+        projetNom: "Études OPCC",
+        sujet: "Les études de l'OPCC (Étude N°7 FFTB)",
+        objectif: "Suivi de la réalisation de l'étude n°7 de la FFTB avec le prestataire Echos'Lab (Sylvain Teissier). Commandée le 26 février 2026. Analyse et étude des 21 variantes.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "Analyse et étude des 21 variantes Rapport puis restitution de l'analyse. <br> Restitution du rapport en visio.",
+        echeance: "25/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Ludovic","Savio"," Sylvain Teissier "]
+    },
+
+
+    {
+        id: "savio-2-12",
+        projet: "observatoire",
+        projetNom: "Communication Observatoire",
+        sujet: "Support de communication",
+        objectif: "Préparation de 3 lettres : régionalisée, nationale (LinkedIn), et IRIEC (collecte dossiers Data-Collect)",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "Finalisation lettre régionalisée et publication",
+        echeance: "21/11/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
+        rag: "amber",
+        equipe: ["Savio", "Emma", "Sofian"]
+    },
+
+    {
+        id: "savio-2-13",
+        projet: "datacollect",
+        projetNom: "Webinaire Data-Collect",
+        sujet: "Organisation d'un webinaire Data-Collect",
+        objectif: "Maintenir la visibilité de Data-Collect, augmenter le nombre d'utilisateurs actifs et accroître le volume de projets saisis sur la plateforme.",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "Préparer l'ensemble des supports nécessaires à la présentation du webinaire : La liste des projets à saisir ; Les éléments de langage pour la présentatrice ; La définition de la cible du webinaire.",
+        echeance: "11/12/2025",
+        priorite: "medium",
+        prioriteNom: "Moyenne",
+        rag: "amber",
+        equipe: ["Savio", "Léna Ratel"]
+    },
+ 
+];
