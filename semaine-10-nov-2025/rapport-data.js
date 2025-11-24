@@ -1,4 +1,4 @@
-// rapport-data.js - Semaine du 10 novembre 2025
+// rapport-data.js - Semaine du 24 novembre 2025
 const activities = [
 
     // Dassoah 
@@ -6,28 +6,28 @@ const activities = [
         id: "estima-1-1",
         projet: "estima",
         projetNom: "Estima",
-        sujet: "Convention technique\n Vizcab, Emersus / Untec<br> - Transmission par Untec Services à Emersus et Vizcab des données de coûts constatés, issues d'Estima.",
-        objectif: "Développement en interne d'une interface d'échange de données sécurisée (API), permettant aux deux éditeurs de récupérer le prix estimé des prestations basées sur la méthode Untec.",
+        sujet: "Mise en production Estima 2.0",
+        objectif: "Déploiement de la nouvelle version d'Estima 2.0 pour l'ensemble des utilisateurs",
         statut: "termine",
         statutNom: "Terminé",
-        prochaine: "- Rendez-vous de présentation final et mise en production\n <br>- Activation des autorisations de connexion à l'API\n <br>- Création de deux profils utilisateur de test sur Estima pour Vizcab et Emersus",
-        echeance: "24/10/2025",
+        prochaine: "Suivi post-déploiement et support utilisateurs",
+        echeance: "10/11/2025",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "green",
-        equipe: ["Dassoah", "Savio"]
+        equipe: ["Dassoah"]
     },
 
     {
         id: "estima-1-2",
         projet: "estima",
         projetNom: "Estima",
-        sujet: "Estima 2.0",
-        objectif: "Refonte complète de la suite logicielle MeTod en version 2.0, incluant la réécriture intégrale du code et une mise à niveau technologique.",
+        sujet: "Corrections suite aux retours du groupe de travail",
+        objectif: "Prise en compte et correction des remarques remontées par le groupe de travail sur Estima 2.0",
         statut: "a-faire",
         statutNom: "À faire",
-        prochaine: "- Harmonisation et correction des formules de calcul entre les versions 1.0 et 2.0",
-        echeance: "10/11/2025",
+        prochaine: "- Analyse des retours du groupe de travail<br>- Correction des anomalies identifiées<br>- Tests et validation des corrections",
+        echeance: "01/12/2025",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "amber",
@@ -37,100 +37,50 @@ const activities = [
     {
         id: "estima-1-3",
         projet: "estima",
-        projetNom: "Estima",
-        sujet: "Estima 2.0",
-        objectif: "Mise en production",
-        statut: "a-venir",
-        statutNom: "À venir",
-        prochaine: "Déployer officiellement la nouvelle version d'Estima pour tous les utilisateurs",
-        echeance: "15/11/2025",
-        priorite: "high",
-        prioriteNom: "Haute",
-        rag: "red",
-        equipe: ["Dassoah"]
-    },
-
-    {
-        id: "estima-1-4",
-        projet: "estima",
-        projetNom: "Estima",
-        sujet: "Backoffice Estima 2.0",
-        objectif: "Création d'un backoffice pour Rémy permettant la gestion des profils utilisateurs",
+        projetNom: "Estima / Gestiona",
+        sujet: "Rendez-vous avec Christophe",
+        objectif: "Planifier une réunion pour discuter de la grille de gestion Gestiona et de l'import des projets Attic vers Estima 2.0",
         statut: "a-faire",
         statutNom: "À faire",
-        prochaine: "- Développement de l'interface d'administration<br>- Mise en place des fonctionnalités de création et gestion des profils utilisateurs",
-        echeance: "30/11/2025",
+        prochaine: "- Trouver une date de rendez-vous avec Christophe<br>- Préparer les points à aborder sur la grille Gestiona<br>- Définir la méthode d'import des projets Attic",
+        echeance: "À définir",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "amber",
-        equipe: ["Dassoah"]
+        equipe: ["Dassoah", "Christophe"]
     },
 
     {
-        id: "metod-1-5",
-        projet: "estima",
-        projetNom: "MeTod 2.0",
-        sujet: "Gestion des paiements",
-        objectif: "Mise en place du système de gestion des paiements pour MeTod 2.0",
-        statut: "a-venir",
-        statutNom: "À venir",
-        prochaine: "- Analyse des besoins pour la gestion des paiements<br>- Intégration d'une solution de paiement sécurisée",
-        echeance: "15/12/2025",
+        id: "iriec-1-4",
+        projet: "datacollect",
+        projetNom: "Iriec / Data-Collect",
+        sujet: "Développement API Iriec",
+        objectif: "Création d'une API permettant de transmettre les données de Data-Collect vers la plateforme Iriec",
+        statut: "a-faire",
+        statutNom: "À faire",
+        prochaine: "- Définition des endpoints et du format de données<br>- Développement de l'API<br>- Tests d'intégration avec la plateforme Iriec",
+        echeance: "À définir",
         priorite: "high",
         prioriteNom: "Haute",
         rag: "amber",
-        equipe: ["Dassoah"]
+        equipe: ["Dassoah", "Savio"]
     },
 
-   {
-        id: "recap-1-6",
-        projet: "estima",
-        projetNom: "Estima",
-        sujet: "Plan de communication",
-        objectif: "24 oct : finalisation technique. 15 nov : mise en production. En parallèle : plan de communication et collecte des e-mails",
+    {
+        id: "gestiona-1-5",
+        projet: "gestiona",
+        projetNom: "Gestiona",
+        sujet: "Planification du développement Gestiona 2.0",
+        objectif: "Lancement de la phase de développement pour la refonte complète du logiciel Gestiona",
         statut: "planifie",
         statutNom: "Planifié",
-        prochaine: "Suivi du planning et préparation communication",
-        echeance: "15/11/2025",
-        priorite: "medium",
-        prioriteNom: "Moyenne",
+        prochaine: "- Analyse de l'existant et documentation<br>- Définition de l'architecture technique<br>- Planification des sprints de développement<br>- Démarrage du développement",
+        echeance: "05/12/2025",
+        priorite: "high",
+        prioriteNom: "Haute",
         rag: "blue",
-        equipe: ["Emma", "Sofian"]
-    },
-
-
-    {
-        id: "gestiona-1-7",
-        projet: "gestiona",
-        projetNom: "Gestiona",
-        sujet: "Réécriture du logiciel Gestiona - Phase d'analyse",
-        objectif: "Phase préparatoire : analyse du logiciel existant et compilation de la documentation",
-        statut: "a-venir",
-        statutNom: "À venir",
-        prochaine: "- Début du projet : 1er décembre 2025<br>- Phase d'analyse (2 semaines minimum)<br>- Étude approfondie du logiciel actuel<br>- Recherche et compilation de toute la documentation existante<br>- Documentation de l'architecture et des fonctionnalités",
-        echeance: "15/12/2025",
-        priorite: "high",
-        prioriteNom: "Haute",
-        rag: "amber",
         equipe: ["Dassoah", "Savio"]
     },
-
-    {
-        id: "gestiona-1-8",
-        projet: "gestiona",
-        projetNom: "Gestiona",
-        sujet: "Réécriture du logiciel Gestiona - Développement",
-        objectif: "Développement de la réécriture intégrale de Gestiona en version 2.0",
-        statut: "a-venir",
-        statutNom: "À venir",
-        prochaine: "- Évaluation de la charge de travail<br>- Identification des ressources techniques et humaines<br>- Élaboration du plan de travail détaillé<br>- Démarrage du développement",
-        echeance: "10/02/2026",
-        priorite: "high",
-        prioriteNom: "Haute",
-        rag: "red",
-        equipe: ["Dassoah", "Savio"]
-    },
-
 
     
     // Savio
@@ -150,8 +100,7 @@ const activities = [
         equipe: ["Savio"]
     },
 
-
-     {
+    {
         id: "savio-2-2",
         projet: "datacollect",
         projetNom: "Data-Collect",
@@ -166,7 +115,6 @@ const activities = [
         rag: "green",
         equipe: ["Savio"]
     },
-
 
     {
         id: "savio-2-3",
@@ -200,7 +148,7 @@ const activities = [
         equipe: ["Savio", "Dassoah"]
     },
 
-   {
+    {
         id: "recap-2-5",
         projet: "datacollect",
         projetNom: "Data-Collect",
@@ -216,8 +164,7 @@ const activities = [
         equipe: ["Savio", "Dassoah"]
     },
 
-
- {
+    {
         id: "recap-2-6",
         projet: "datacollect",
         projetNom: "Data-Collect",
@@ -232,7 +179,6 @@ const activities = [
         rag: "amber",
         equipe: ["Savio", "Dassoah"]
     },
-
 
     {
         id: "recap-2-7",
@@ -249,7 +195,6 @@ const activities = [
         rag: "amber",
         equipe: ["Savio", "Nicola P"]
     },
-
 
     {
         id: "recap-2-8",
@@ -283,8 +228,7 @@ const activities = [
         equipe: ["Savio", "Ludovic"]
     },
 
-
-      {
+    {
         id: "savio-2-10",
         projet: "etude_opcc",
         projetNom: "Études OPCC",
@@ -300,7 +244,7 @@ const activities = [
         equipe: ["Savio"]
     },
 
-      {
+    {
         id: "savio-2-11",
         projet: "etude_opcc",
         projetNom: "Études OPCC",
@@ -315,7 +259,6 @@ const activities = [
         rag: "amber",
         equipe: ["Ludovic","Savio"," Sylvain Teissier "]
     },
-
 
     {
         id: "savio-2-12",
