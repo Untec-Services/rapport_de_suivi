@@ -1,10 +1,9 @@
-<!-- semaine-10-nov-2025/index.html -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rapport - Semaine du 10-17 novembre 2025</title>
+    <title>Rapport - Semaine du 17-24 novembre 2025</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
       * {
@@ -147,7 +146,6 @@
         background: #007bff;
       }
 
-      /* Styles pour les filtres */
       .filters {
         padding: 15px 30px;
         background: #ffffff;
@@ -207,7 +205,6 @@
         background: #1976d2;
         border-color: #1976d2;
       }
-
 
       .filter-btn.active.project-datacollect {
         background: #7b1fa2;
@@ -286,7 +283,6 @@
         color: #f3f6f3;
       }
 
-      
       .project-tag.etude_opcc {
         background: #0786bd;
         color: #f3f6f3;
@@ -593,7 +589,7 @@
       <div class="header">
         <div class="header-left">
           <h1>📊 Rapport d'avancement</h1>
-          <p>MeTod & Observatoire | 10 → 17 novembre 2025</p>
+          <p>MeTod & Observatoire | 17 → 24 novembre 2025</p>
         </div>
         <div class="header-right">
           <div class="user-selector">
@@ -606,7 +602,7 @@
               <option value="Autre">Autre</option>
             </select>
           </div>
-          <div class="week-badge">10 - 17 novembre 2025</div>
+          <div class="week-badge">17 - 24 novembre 2025</div>
           <div class="action-buttons">
             <a href="../index.html" class="btn">← Retour</a>
             <button onclick="downloadPDF()" class="btn">📥 PDF</button>
@@ -633,7 +629,6 @@
         </div>
       </div>
 
-      <!-- Section des filtres modifiée -->
       <div class="filters">
         <div class="filter-group">
           <span class="filters-label">Filtrer par projet :</span>
@@ -677,7 +672,7 @@
       </table>
 
       <div class="footer">
-        Auteur : Service Informatique Untec | Période : 10 → 17 novembre 2025
+        Auteur : Service Informatique Untec | Période : 17 → 24 novembre 2025
       </div>
     </div>
     <script src="rapport-data.js"></script>
@@ -706,17 +701,15 @@
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
 
-      // État des filtres
       let currentFilters = {
         projet: 'all',
         statut: 'all'
       };
 
-      // Fonction pour charger les commentaires
       function loadComments(activityId, commentsDiv) {
         const commentsRef = ref(
           db,
-          `semaine-10-nov-2025/comments/${activityId}`
+          `semaine-17-nov-2025/comments/${activityId}`
         );
         onValue(commentsRef, (snapshot) => {
           const commentsList = commentsDiv.querySelector(".comment-list");
@@ -752,13 +745,11 @@
                             <div class="comment-text">${comment.text}</div>
                         `;
 
-              // Événement édition
               const editBtn = commentDiv.querySelector(".edit");
               editBtn.addEventListener("click", () => {
                 editComment(activityId, key, comment.text, commentDiv);
               });
 
-              // Événement suppression
               const deleteBtn = commentDiv.querySelector(".delete");
               deleteBtn.addEventListener("click", () => {
                 if (
@@ -774,11 +765,10 @@
         });
       }
 
-      // Fonction pour ajouter un commentaire
       function addComment(activityId, text, author) {
         const commentsRef = ref(
           db,
-          `semaine-10-nov-2025/comments/${activityId}`
+          `semaine-17-nov-2025/comments/${activityId}`
         );
         const newCommentRef = push(commentsRef);
 
@@ -789,7 +779,6 @@
         });
       }
 
-      // Fonction pour éditer un commentaire
       function editComment(activityId, commentId, currentText, commentDiv) {
         const textDiv = commentDiv.querySelector(".comment-text");
         const originalHTML = textDiv.innerHTML;
@@ -811,7 +800,7 @@
           if (newText) {
             const commentRef = ref(
               db,
-              `semaine-10-nov-2025/comments/${activityId}/${commentId}`
+              `semaine-17-nov-2025/comments/${activityId}/${commentId}`
             );
             const currentUser = document.getElementById("currentUser").value;
             set(commentRef, {
@@ -827,16 +816,14 @@
         });
       }
 
-      // Fonction pour supprimer un commentaire
       function deleteComment(activityId, commentId) {
         const commentRef = ref(
           db,
-          `semaine-10-nov-2025/comments/${activityId}/${commentId}`
+          `semaine-17-nov-2025/comments/${activityId}/${commentId}`
         );
         set(commentRef, null);
       }
 
-      // Générer le tableau
       function generateTable() {
         const tbody = document.getElementById("activities-tbody");
         tbody.innerHTML = "";
@@ -846,7 +833,6 @@
           row.dataset.statut = activity.statut;
           row.dataset.projet = activity.projet;
 
-          // Créer la section commentaires
           const commentsSection = document.createElement("div");
           commentsSection.className = "comments-section";
           commentsSection.innerHTML = `
@@ -885,13 +871,9 @@
                     <td></td>
                 `;
 
-          // Ajouter la section commentaires dans la dernière cellule
           row.lastElementChild.appendChild(commentsSection);
-
-          // Charger les commentaires existants
           loadComments(activity.id, commentsSection);
 
-          // Ajouter l'événement pour le bouton
           const addBtn = commentsSection.querySelector(".add-comment-btn");
           const textarea = commentsSection.querySelector(".comment-input");
 
@@ -901,7 +883,6 @@
               const currentUser = document.getElementById("currentUser").value;
               let author = currentUser;
 
-              // Si "Autre" est sélectionné, demander le nom
               if (currentUser === "Autre") {
                 author = prompt("Votre nom:", "") || "Anonyme";
               }
@@ -918,7 +899,6 @@
         document.getElementById("activities-table").style.display = "table";
       }
 
-      // Fonction pour filtrer les activités avec les deux critères
       function filterActivities() {
         const rows = document.querySelectorAll("#activities-tbody tr");
 
@@ -934,36 +914,26 @@
         });
       }
 
-      // Gestion des clics sur les boutons de filtre
       document.querySelectorAll(".filter-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
           const filterType = this.dataset.filterType;
           const filterValue = this.dataset.filter;
 
-          // Retirer la classe active uniquement des boutons du même type
           document.querySelectorAll(`.filter-btn[data-filter-type="${filterType}"]`).forEach((b) => {
             b.classList.remove("active");
           });
 
-          // Ajouter la classe active au bouton cliqué
           this.classList.add("active");
-
-          // Mettre à jour le filtre correspondant
           currentFilters[filterType] = filterValue;
-
-          // Appliquer les filtres
           filterActivities();
         });
       });
 
-      // Initialiser le tableau
       generateTable();
 
-      // Fonction PDF
       window.downloadPDF = function () {
         const element = document.getElementById("report-content");
         
-        // Éléments à cacher temporairement
         const elementsToHide = [
           document.querySelector('.user-selector'),
           document.querySelector('.action-buttons'),
@@ -972,12 +942,10 @@
           ...document.querySelectorAll('.comment-action-btn')
         ];
         
-        // Cacher les éléments
         elementsToHide.forEach(el => {
           if (el) el.style.display = 'none';
         });
         
-        // Ajuster le header pour le PDF
         const header = document.querySelector('.header');
         const headerRight = document.querySelector('.header-right');
         const headerLeft = document.querySelector('.header-left');
@@ -996,7 +964,6 @@
           cells: Array.from(allCells).map(cell => cell.style.cssText)
         };
         
-        // Optimiser pour le PDF
         header.style.padding = '15px 20px';
         header.style.textAlign = 'center';
         if (headerRight) headerRight.style.display = 'none';
@@ -1013,14 +980,12 @@
           footer.style.fontSize = '10px';
         }
         
-        // Optimiser le tableau
         allCells.forEach(cell => {
           cell.style.padding = '8px 6px';
           cell.style.fontSize = '10px';
           cell.style.lineHeight = '1.3';
         });
         
-        // Réduire la taille des éléments dans les cellules
         document.querySelectorAll('.project-tag, .status-pill, .team-member').forEach(el => {
           el.style.fontSize = '9px';
           el.style.padding = '3px 8px';
@@ -1043,7 +1008,7 @@
         
         const opt = {
           margin: [8, 8, 8, 8],
-          filename: "rapport-10-17-nov-2025.pdf",
+          filename: "rapport-17-24-nov-2025.pdf",
           image: { type: "jpeg", quality: 0.95 },
           html2canvas: { 
             scale: 1.5,
@@ -1058,7 +1023,6 @@
         };
 
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restaurer l'affichage après génération du PDF
           elementsToHide.forEach(el => {
             if (el) el.style.display = '';
           });

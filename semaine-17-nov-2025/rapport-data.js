@@ -1,4 +1,4 @@
-// rapport-data.js - Semaine du 24 novembre 2025
+// rapport-data.js - Semaine du 17 au 24 novembre 2025
 const activities = [
 
     // Dassoah 
