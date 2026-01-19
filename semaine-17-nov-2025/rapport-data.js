@@ -290,6 +290,7 @@ const activities = [
         prioriteNom: "Moyenne",
         rag: "amber",
         equipe: ["Savio", "Léna Ratel"]
+        // equipe: ["Savio", "Léna Ratel"]
     },
  
 ];
